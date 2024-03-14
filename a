@@ -1,0 +1,102 @@
+import os
+
+def Ingresar_Car_opc_Mensaje(OPCIONES,MENSAJE):
+    while(True):
+        letter=input(MENSAJE)
+        if(letter.upper() not in OPCIONES):
+            print("invalid option")
+        else:
+            return letter.upper()
+        
+def Ingrese_Num_Mensaje(MENSAJE):
+    while(True):
+        num=input(MENSAJE)
+        if(num.isnumeric()==False):
+            print("\nRemember that the value of the variable must be numerical.");
+        else:
+            num=int(num)
+            return(num)
+
+def enter_the_divisor(MESSAGE):
+    while(True):
+        divisor=int(input(MESSAGE))
+        if(divisor==0):
+            print("Error, the divisor must be non-zero")
+        else:
+            return(divisor)
+ 
+
+    
+print("\n\t\tWelcome, basic calculator\n\t");
+exit=Ingresar_Car_opc_Mensaje("SE","\n\tPlease type the letter 'S' to start the program or the letter 'E' to end.");
+os.system("cls")
+while(exit!='E'):
+    print("\t\tMenu of operations you can perform.\n\t1.Add\n\t2.subtract\n\t3.Multiply\n\t4.Split");
+    opc=Ingresar_Car_opc_Mensaje("1234E","\n\tPlease enter the number of the desired option or 'E' to end the program");
+    os.system("cls")
+    if(opc=='E'):
+        break
+    elif(opc=='1'):
+        while(True):
+            print("\n\tADD Operation\n")
+            num1=Ingrese_Num_Mensaje("Please type the first number:");
+            num2=Ingrese_Num_Mensaje("Please type the second number:");
+            print("{} + {} = {}".format(num1,num2,num1+num2))
+            opc=Ingresar_Car_opc_Mensaje("RME","Please type the letter 'R' to make a new add,'M' to comeback at the principal menu or 'E' to end the program")
+            os.system("cls")
+            if(opc=='M'):
+                exit='S'
+                break
+            elif(opc=='E'):
+                exit='E'
+                break
+            else:
+                continue
+    elif(opc=='2'):
+        while(True):
+            print("\n\tSUBTRACT Operation\n")
+            num1=Ingrese_Num_Mensaje("Please type the minuend:");
+            num2=Ingrese_Num_Mensaje("Please type the subtrahend:");
+            print("{} - {} = {}".format(num1,num2,num1-num2))
+            opc=Ingresar_Car_opc_Mensaje("RME","Please type the letter 'R' to make a new subtract,'M' to comeback at the principal menu or 'E' to end the program")
+            os.system("cls")
+            if(opc=='M'):
+                exit='S'
+                break
+            elif(opc=='E'):
+                exit='E'
+                break
+            else:
+                continue
+    elif(opc=='3'):
+        while(True):
+            print("\n\tMULTIPLY Operation\n")
+            num1=Ingrese_Num_Mensaje("Please type the first number:");
+            num2=Ingrese_Num_Mensaje("Please type the second number:");
+            print("{} * {} = {}".format(num1,num2,num1*num2))
+            opc=Ingresar_Car_opc_Mensaje("RME","Please type the letter 'R' to make a new multiply,'M' to comeback at the principal menu or 'E' to end the program")
+            os.system("cls")
+            if(opc=='M'):
+                exit='S'
+                break
+            elif(opc=='E'):
+                exit='E'
+                break
+            else:
+                continue           
+    elif(opc=='4'):
+        while(True):
+            print("\n\tSPLIT Operation\n")
+            num1=Ingrese_Num_Mensaje("Please type the dividend:");
+            num2=enter_the_divisor("Please type the divisor:");     
+            print("{} / {} = {}".format(num1,num2,num1/num2))
+            opc=Ingresar_Car_opc_Mensaje("RME","Please type the letter 'R' to make a new split,'M' to comeback at the principal menu or 'E' to end the program")
+            os.system("cls")
+            if(opc=='M'):
+                exit='S'
+                break
+            elif(opc=='E'):
+                exit='E'
+                break
+            else:
+                continue  
